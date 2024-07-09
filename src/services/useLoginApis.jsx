@@ -2,12 +2,12 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { loginFetchFail, loginFetchStart, loginSuccess, registerSuccess } from '../features/loginSlice';
+import { loginFetchFail, loginFetchStart, loginSuccess, logoutSuccess, registerSuccess } from '../features/loginSlice';
 import { toastErrorNotify, toastSuccessNotify } from '../helper/Toastify';
 
 const useLoginApis = () => {
 
-  const BASE_URL =  'http://localhost:2000/api'; //env den cek
+  const BASE_URL = process.env.REACT_APP_BASE_URL; 
 const navigate = useNavigate();
 const dispatch = useDispatch();
 
@@ -28,11 +28,11 @@ const dispatch = useDispatch();
           }
           console.log('login = ',response);
           const data = await response.json();
-          const accessToken = data?.accessToken;
+          // const accessToken = data?.accessToken;
           console.log(data);
-          console.log(accessToken);
+          // console.log(accessToken);
         //   process.env.accessToken = accessToken;
-        dispatch(loginSuccess(accessToken))
+        dispatch(loginSuccess(data))
         toastSuccessNotify("Logined Succefull!y!")
       navigate('/home');
         } catch (error) {
@@ -66,8 +66,17 @@ const dispatch = useDispatch();
         }
       };
 
+      const logoutApi = async () => {
+        dispatch(logoutSuccess())
+        toastSuccessNotify("Logged out Succefully!!")
+        navigate('/login');
+        
 
-  return {loginApi,registerApi,}
+      };
+
+
+
+  return {loginApi,registerApi,logoutApi,}
 }
 
 export default useLoginApis

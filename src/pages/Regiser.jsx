@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import useLoginApis from "../services/useLoginApis";
 import { toastWarnNotify } from "../helper/Toastify";
+import { useSelector } from "react-redux";
 
 const Regiser = () => {
   const { registerApi } = useLoginApis();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const token = useSelector(state=> state.login.token);
 
   const submitHandle = (e) => {
     e.preventDefault();
@@ -23,7 +25,9 @@ const Regiser = () => {
     console.log(creds);
     registerApi(creds);
   };
-
+  if(token){
+    return <Navigate to="/home"/>
+  }
   return (
     <div className="wrapper">
       <h4 className="form-header">Register</h4>

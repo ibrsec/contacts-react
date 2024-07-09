@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { toastWarnNotify } from "../helper/Toastify";
 import useLoginApis from "../services/useLoginApis";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 const Login = () => {
   const { loginApi } = useLoginApis();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+const token = useSelector(state=> state.login.token);
 
   const submitHandle = (e) => {
     e.preventDefault();
@@ -22,7 +23,9 @@ const Login = () => {
     console.log(creds);
     loginApi(creds);
   };
-
+if(token){
+  return <Navigate to="/home"/>
+}
   return (
     <div className="wrapper">
       <h4 className="form-header">Login</h4>

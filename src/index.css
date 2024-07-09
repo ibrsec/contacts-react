@@ -7,14 +7,17 @@
 }
 
 body {
-    margin-top: 20px;
-    margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   min-height: 100vh;
   background-color: bisque;
+
+  font-family: "Poppins", sans-serif;
+}
+.content-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Poppins", sans-serif;
 }
 .wrapper {
   border: 1px solid white;
@@ -87,11 +90,100 @@ body {
   border-collapse: collapse;
   width: 100%;
 }
-td, th{
-    border: 1px solid chocolate;
+tr{
+  cursor: pointer;
+}
+td,
+th {
+  /* border: 1px solid chocolate; */
   text-align: left;
   padding: 8px;
 }
+td {
+  font-size: 13px;
+  overflow-x: auto;
+  /* width: 100%; */
+  max-width: 98px;
+}
 tr:nth-child(even) {
-    background-color: darkgoldenrod;
-  }
+  background-color: darkgoldenrod;
+}
+
+.navbar-wrapper {
+  padding-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar {
+  margin: 20px auto;
+  /* border: 1px solid red; */
+  /* padding: 1rem; */
+  /* margin-left: 5px;
+  margin-right: 5px; */
+  width: 90%;
+  max-width: 600px;
+  min-width: 350px;
+}
+.logo span {
+  font-weight: 600;
+  color: chocolate;
+  letter-spacing: 2px;
+}
+.user-part {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.user-part span {
+  font-size: 11px;
+  color: cadetblue;
+}
+.logout-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.logout-button:hover {
+  color: brown;
+}
+.logout-button:active {
+  color: chocolate;
+}
+
+.no-contact {
+  color: red;
+  margin: 1rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+
+.contact-detail div{
+
+width: 300px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin-top: 1rem;
+}
+
+
+.contact-detail div span{
+  overflow-x: auto;
+}
+.contact-detail button{
+  background-color: chocolate;
+  padding: .7rem 2rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: bisque;
+  transition: .5s all;
+}
+.contact-detail button:hover{
+  background-color: brown;
+}
+.contact-detail button:active{
+  background-color: indianred;
+}
