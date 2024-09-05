@@ -17,7 +17,7 @@
     An awesome Frontend of Contacts App 
     <!-- <a href="https://github.com/ibrsec/contacts-react"><strong>Explore the docs »</strong></a> -->
     <br />
-    <br />
+    <br /> 
     <a href="https://contacts-react-express.vercel.app/">View Demo</a>
     · 
     <a href="https://github.com/ibrsec/contacts2-express">Backend repo</a>
